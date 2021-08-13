@@ -1,36 +1,65 @@
+:root {
+    --primary-color: #4F4F51;
+    --secondary-color: #F58F7C;
+    --tertiary-color: #3BBA9C;
+}
+
 body{
-    text-align: center;
-    margin:auto;
-    width:40%;
     font-family: sans-serif;
-    color: #66263F;
+    color: var(--secondary-color);
+    background-color: #F6F6F2; 
 }
 
 .container {
-    margin:20px;
-    padding:30px;
-    background-color: goldenrod;
+    padding: 18px 5px;
+    background-color: var(--primary-color);
     border-radius: 20px;
+    height:90vh;
+    box-shadow: 15px 7px var(--tertiary-color);
+    margin:2rem 2rem 5rem;
+    overflow: hidden;
+    text-align: center;
+    max-width: 600px;
+    min-height: 200px;
+    height: 100%;
+    margin: 50px auto;
+}
+
+@media only screen and (max-width:500px) {
+    .container {
+        margin: 50px 18px;
+    }
 }
 
 .header {
-    font-size: 40px;
+    font-size: 50px;
     font-family: cursive;
+    color: var(--tertiary-color);
 }
 
 button, input {
     display: block;
     padding:10px 30px;
-    border: 2px solid #66263F;
+    border: 2px solid var(--secondary-color);
     border-radius: 10px;
     margin: 20px auto;
     background-color: white;
+    font-size: 18px;
 }
 
 button:hover {
-    background-color: #66263F;
+    background-color: var(--secondary-color);
     color: white;
     font-weight: bolder;
+}
+
+.loading-img  {
+    width:110px;
+    height:110px;
+    border-radius: 50%;
+    border:5px solid black;
+    margin-bottom: 3rem;
+    bottom:1rem;
 }
 
 input {
@@ -40,4 +69,19 @@ input {
 .result{
     font-weight: bolder;
     font-size: 26px;
+    margin-bottom: 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    padding:20px;
+    margin:10px;
+    color:var(--tertiary-color)
+}
+
+.hide {
+    display: none;
+}
+
+.display {
+    display: block;
+    margin: auto;
 }

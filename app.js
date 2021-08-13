@@ -1,5 +1,6 @@
 const userDate = document.querySelector("#userDate");
 const checkBtn = document.querySelector("#checkBtn");
+var loadingImg = document.querySelector('.loading-img')
 const result = document.querySelector(".result");
 
 
@@ -156,6 +157,7 @@ function clickHandler() {
         };
 
         var checkPalindrome = checkPalindromeForAllDateFormats(date);
+        result.classList.remove("hide")
 
         if (checkPalindrome) {
             result.innerText = "Woah!!! Your Birthday is Palindrome";
@@ -163,10 +165,27 @@ function clickHandler() {
         else {
             var [ctr, nextDate] = calculateNoOfDaysForPalindrome(date);
 
-            result.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, yoy missed it by ${ctr} days!`
+            result.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed it by ${ctr} days!`
         }
 
+        var endResult = result.innerText;
+
     }
+    return endResult;
 }
 
-checkBtn.addEventListener("click", clickHandler);
+function displayGif() {
+    loadingImg.classList.add("display");
+}
+
+function timesOut() {
+    displayGif();
+    setTimeout(function() {
+        loadingImg.classList.remove("display");
+        clickHandler();
+    }, 
+        3000
+    );
+}
+
+checkBtn.addEventListener("click", timesOut);
